@@ -1,0 +1,46 @@
+<h3 class="text-center">Perform function</h3>
+<h3 style="background-color: greenyellow;" class="text-center">{{successfully}}</h3>
+<img width="30" height="30" src="/views/image/avata.jpg" alt="">
+<form action="/user/add" method="POST" enctype="multipart/form-data" autocomplete="off">
+    <input type="hidden" name="id" value="{{user._id}}">
+    <div class="form-group">
+        
+        <label for="">Tên Sản Phẩm</label>
+        <input type="text" name="fullName" value="{{user.fullName}}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="">Mã Sản Phẩm</label>
+        <input type="text" name="email" value="{{user.email}}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="">Đơn Giá</label>
+        <input type="text" name="password" value="{{user.password}}" class="form-control">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="">Màu Sắc</label>
+            <input type="text" name="phone" value="{{user.phone}}" class="form-control" id="">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="">Loại Sản Phẩm</label>
+            <input type="text" name="address" value="{{user.address}}" class="form-control" id="">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="">Mã Khách Hàng</label>
+            <input type="text" name="city" value="{{user.city}}" class="form-control" id="">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="">Tên Khách Hàng</label>
+            <input type="text" name="people" value="{{user.people}}" class="form-control" id="">
+        </div>
+        <div class="mb-3 mt-3 row g-9 align-items-center">
+            <div class="col col-lg-2"><label class="form-label">Photo</label></div>
+            <div class="col"><input type="file" name="filename" class="form-control"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-into">Sumbit</button>
+        <a href="/user/list" class="btn btn-primary btn-sm">View-User</a>
+    </div>
+
+</form>
