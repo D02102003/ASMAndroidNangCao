@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const userModel = require('../models/admin');
+const userModelUser = require('../models/user');
 let alert = require('alert'); 
 
 
@@ -14,6 +15,7 @@ app.engine('.hbs', exphbs.engine({
     defaultLayout:'main',
     layoutsDir: "views/layouts/"
 }));
+app.use(express.static('views/image'))
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', '.hbs');
@@ -40,7 +42,12 @@ app.post('/signInSuccessfully', (req, res) => {
             
             if(data){
                 console.log(data.filename);
-                res.render('users/screen.hbs',{layout:false})
+                userModelUser.find({}).then(users => {
+                    res.render('users/screen',
+                        {layout: false, users: users.map(user => user.toJSON()) }
+                    )
+            
+                })
             }else{
                 alert('Email hoặc pass sai')
             }
@@ -75,7 +82,7 @@ let upload = multer({
 })
 
 app.post('/adduser', upload.single('filename'), (req, res) => {
-    
+    console.log(req.body);
     var email1 = String(req.body.email);
     var password1 = String(req.body.password);
     var fullName = String(req.body.fullName);

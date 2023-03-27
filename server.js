@@ -7,7 +7,7 @@ const userControllerAdmin = require('./controller/admin');
 const { render } = require('./controller/userControllers');
 const url = "mongodb+srv://hieuttph:hieuttph123@atlascluster.yjodynw.mongodb.net/dbUserManager?retryWrites=true&w=majority"
 
-const app =express();
+const app =express();   
 app.use(bodyParser.urlencoded({
     extended:true
 }));
@@ -31,6 +31,9 @@ mongoose.connect(url,{useUnifiedTopology:true,useNewUrlParser:true});
 app.get('/',(req,res)=>{
     res.render('users/signUp.hbs',{layout: 'main'})
 });
+app.get('/test',(req,res) =>{
+    res.render('users/bss.hbs')
+})
 
 app.use('/user',userController);
 app.use('/admin',userControllerAdmin);
@@ -38,6 +41,8 @@ app.use('/admin',userControllerAdmin);
 app.get('/admin/signIn',(req,res)=>{
     res.render('users/signIn.hbs',{layout: 'main'})
 });
+
+
 
 
 app.listen(3000);

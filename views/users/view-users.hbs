@@ -1,71 +1,46 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body class="bg-info" >
 <div class="form-group text-center">
-        <h1>Danh Sách Sản Phẩm</h1>
-    </div>
+    <h1>Danh Sách Sản Phẩm</h1>
+</div>
 
-    <a href="/user" style="border-radius: 50px; width: 100px; height: 50px;border: 1 red solid; background-color: darkgray;color: crimson; font-size:23px;margin-bottom: 10px;font-weight: bold;text-align: center;" class="btn btn-second ">ADD</a>
+<a href="/user"
+    style="border-radius: 50px; width: 100px; height: 50px;border: 1 red solid; background-color: darkgray;color: crimson; font-size:23px;margin-bottom: 10px;font-weight: bold;text-align: center;"
+    class="btn btn-second ">ADD</a>
 
-    <div class="form-group text-right">
-        <form action="/user/search" class="text-right" method="POST" >
-            <input  style="width: 250px; height: 27px; " name="search"  type="text" placeholder="search">
-            <button type="submit" class="btn btn-primary btn-sm">Find</button>
-        </form>
-    </div>
+<div class="form-group text-right">
+    <form action="/user/search" class="text-right" method="POST">
+        <input style="width: 250px; height: 27px; " name="search" type="text" placeholder="search">
+        <button type="submit" class="btn btn-primary btn-sm">Find</button>
+    </form>
+</div>
 
 
-    <table class="table table-bordered">
-        <tr>
-            <th>Ảnh</th>
-            <th>Tên </th>
-            <th>Mã</th>
-            <th>Đơn Giá</th>
-            <th>Màu Sắc</th>
-            <th>Loại Sản Phẩm</th>
-            <th>Action</th>
-        </tr>
+<table class="table table-bordered">
+    <tr>
+        <th>Ảnh</th>
+        <th>Tên </th>
+        <th>Mã</th>
+        <th>Đơn Giá</th>
+        <th>Màu Sắc</th>
+        <th>Loại Sản Phẩm</th>
+        <th>Action</th>
+    </tr>
 
-        {{#each users}}
-        <tr>
+    {{#each users}}
+    <tr>
 
-            <td><img width="30" height="30" src="/views/image/{{this.filename}}" alt=""></td>
-            <td>{{this.fullName}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.password}}</td>
-            <td>{{this.phone}}</td>
-            <td>{{this.address}}</td>
-            <td> <a href="/user/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a> |
-                <a href="/user/delete/{{this._id}}" onclick="return confirm('Are your sure?')"
-                    class="btn btn-primary btn-sm">Delete</a>
-            </td>
-        </tr>
-        {{/each}}
-    </table>
+        <td><img width="30" height="30" src="http://127.0.0.1:5500/views/image/{{this.filename}}" alt=""></td>
+        <td>{{this.fullName}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.password}}</td>
+        <td>{{this.phone}}</td>
+        <td>{{this.address}}</td>
+        <td> <a href="/user/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a> |
+            <a href="/user/delete/{{this._id}}" onclick="return confirm('Are your sure?')"
+                class="btn btn-primary btn-sm">Delete</a>
+        </td>
+    </tr>
+    {{/each}}
+</table>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
