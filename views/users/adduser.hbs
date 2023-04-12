@@ -1,0 +1,33 @@
+<h3>{{successfully}}</h3>
+<img width="30" height="30" src="/views/image/avata.jpg" alt="">
+<form action="/admin/themuser" method="POST" enctype="multipart/form-data" autocomplete="off">
+    <input type="hidden" name="id" value="{{user._id}}">
+    
+    <div class="form-group">
+        <label for="">Full Name</label>
+        <input type="text" name="fullName" value="{{user.fullName}}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" name="email" value="{{user.email}}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="text" name="password" value="{{user.password}}" class="form-control">
+    </div>
+
+    <div><label for=""><input type="radio" name="role" value="admin">Admin</label>
+        <label for=""><input type="radio" name="role" value="user"> User</label>
+        
+    </div>
+
+    <div class="mb-3 mt-3 row g-9 align-items-center">
+        <div class="col col-lg-2"><label class="form-label">Avata</label></div>
+        <div class="col"><input type="file" name="filename" class="form-control"></div>
+    </div>
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary btn-sm ">Sumbit</button>
+    </div>
+
+</form>

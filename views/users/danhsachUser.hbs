@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   
+</head>
+
+<body class="bg-info">
+    
+
+    <div class="form-group text-center" >
+        <h1>Sản Phẩm Có Tên {{this.fullName}}</h1>
+    </div>
+
+    <a href="/admin/themuser"
+    style="border-radius: 50px; width: 100px; height: 50px;border: 1 red solid; background-color: darkgray;color: crimson; font-size:23px;margin-bottom: 10px;font-weight: bold;text-align: center;"
+    class="btn btn-second ">ADD</a>
+    <table class="table table-bordered">
+        <tr>
+            <th>Avata</th>
+            <th>Tên </th>
+            <th>Email</th>
+            <th>Pass</th>
+            <th>Action</th>
+            
+        </tr>
+
+        {{#each users}}
+        <tr>
+
+            <td><img width="30" height="30" src="http://127.0.0.1:5500/views/image/{{this.filename}}" alt=""></td>
+            <td>{{this.fullName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.password}}</td>
+            <td> <a href="/admin/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a> |
+            <a href="/admin/deleteuser/{{this._id}}" onclick="return confirm('Are your sure?')"
+                class="btn btn-primary btn-sm">Delete</a>
+        </td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
+</body>
+
+</html>

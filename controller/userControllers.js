@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 let storage = multer.diskStorage({
-    destination: 'views/image/',
+    destination: 'image/',
     filename: (req, file, cb) => {
         cb(null, file.originalname)
     }
@@ -40,18 +40,19 @@ app.post('/search', (req, res) => {
         fullName: tenSanPham
     })
         .then(data => {
-            const name = data.fullName;
-            const ma = data.email;
-            const donGia = data.password;
-            const mau = data.phone;
-            const loai = data.address;
-            const maKH = data.city;
-            const tenKH = data.people;
-            const avata = data.filename;
+           
+            // const ma = data.email;
+            // const donGia = data.password;
+            // const mau = data.phone;
+            // const loai = data.address;
+            // const maKH = data.city;
+            // const tenKH = data.people;
+            // const avata = data.filename;
 
             if (data) {
-                console.log(data);
-                res.render('users/findSP.hbs',{data: data.map(data => data.toJSON()) })
+                
+                res.render('users/findSP.hbs',{layout: false, data: data.map(data => data.toJSON()) })
+               
             } else {
                 alert('Loi')
             }
@@ -88,6 +89,7 @@ app.post('/add', upload.single('filename'), async (req, res) => {
             people: req.body.people,
             filename: req.file.filename,}, { new: true }, (err, doc) => {
             if (!err) {
+                console.log(req.body)
                 res.redirect('/user/list');
             } else {
                 console.log(err);
@@ -144,6 +146,7 @@ app.get('/edit/:id', (req, res) => {
     userModel.findById(req.params.id, (err, user) => {
         if (!err) {
             res.render('users/addOrEdit.hbs', { user: user.toJSON() })
+            console.log(user);
         }
     })
 })
