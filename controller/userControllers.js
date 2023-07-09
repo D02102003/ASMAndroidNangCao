@@ -40,14 +40,6 @@ app.post('/search', (req, res) => {
         fullName: tenSanPham
     })
         .then(data => {
-           
-            // const ma = data.email;
-            // const donGia = data.password;
-            // const mau = data.phone;
-            // const loai = data.address;
-            // const maKH = data.city;
-            // const tenKH = data.people;
-            // const avata = data.filename;
 
             if (data) {
                 

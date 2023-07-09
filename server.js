@@ -6,7 +6,7 @@ const userController = require('./controller/userControllers');
 const userControllerAdmin = require('./controller/admin');
 const { render } = require('./controller/userControllers');
 const cookieParser = require('cookie-parser');
-const url = "mongodb+srv://hieuttph:hieuttph123@atlascluster.yjodynw.mongodb.net/dbUserManager?retryWrites=true&w=majority"
+const url = "mongodb+srv://hieuttph27500:hieuttph27500@cluster0123.cqbgwlw.mongodb.net/dbPH27500?retryWrites=true&w=majority"
 
 const app =express();   
 app.use(bodyParser.urlencoded({
